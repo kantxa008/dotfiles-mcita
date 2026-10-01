@@ -1,0 +1,15 @@
+# --- Nano Kısayolları ---
+
+# Ctrl + Yön tuşları ile kelime atlama (prevword / nextword)
+bind ^Left prevword main
+bind ^Right nextword main
+
+# Ctrl + Backspace ile soldaki kelimeyi silme
+# (Çoğu terminal Ctrl+Backspace için ^H sinyali gönderir)
+bind ^H chopwordleft main
+
+# Ctrl + Delete ile sağdaki kelimeyi silme
+bind ^Delete chopwordright main
+
+# İsteğe bağlı: Fare desteğini açmak isterseniz bu satırı ekleyebilirsiniz
+# set mouse
