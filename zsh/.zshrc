@@ -97,7 +97,7 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 # Zoxide başlatma komutu (Path'e ekleyerek)
 export PATH=$PATH:$HOME/.local/bin
-unalias zi 
+# unalias zi 
 eval "$(zoxide init zsh)"
 
 # --- SSH ANAHTAR YÖNETİMİ (Keychain) ---
@@ -245,3 +245,27 @@ audio_fix() {
 
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+
+
+
+# --- Klavye Kısayolları (bindkey) ---
+
+# Home ve End Tuşları (Satırın en başına / en sonuna gitme)
+bindkey "^[[H" beginning-of-line
+bindkey "^[[F" end-of-line
+bindkey "^[[1~" beginning-of-line  # Bazı terminaller için alternatif Home
+bindkey "^[[4~" end-of-line        # Bazı terminaller için alternatif End
+
+# Delete Tuşu Kombinasyonları
+bindkey "^[[3~" delete-char        # Delete (İmlecin sağındaki harfi siler)
+bindkey "^[[3;5~" kill-word        # Ctrl + Delete (İmlecin sağındaki kelimeyi siler)
+
+# Ctrl + Backspace (İmlecin solundaki kelimeyi siler)
+# Terminal emülatörüne göre bu tuş kombinasyonu farklı sinyaller gönderebilir, 
+# en yaygın iki varyasyon da eklenmiştir:
+bindkey '^H' backward-kill-word    
+bindkey '^W' backward-kill-word    
+
+# Ctrl + Sağ/Sol Yön Tuşları (Kelime kelime atlama)
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
